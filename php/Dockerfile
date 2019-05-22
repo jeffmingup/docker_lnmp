@@ -1,7 +1,8 @@
 FROM daocloud.io/library/php:7.2-fpm-alpine
 
 COPY config/php.ini /usr/local/etc/php
-
+RUN groupadd www-data \
+    && useradd –d /usr/www-data -m www-data
 #RUN apk add autoconf gcc \
 #    && wget https://github.com/phpredis/phpredis/archive/3.1.3.tar.gz \
 #    && tar -zxvf 3.1.3.tar.gz \
