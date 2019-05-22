@@ -56,7 +56,6 @@ chmod +x /usr/local/bin/docker-compose
 
 ```
 docker_lnmp
-├── v2
 ├── mysql
 │   └── Dockerfile
 │	└── my.cnf
@@ -84,21 +83,8 @@ docker_lnmp
 
 ### 创建镜像与安装
 > 直接使用docker-compose一键制作镜像并启动容器
-
-**版本一**
-
-*该版本是通过拉取纯净的CentOS镜像，通过Dockerfile相关命令进行源码编译安装各个服务。所以该方式很方便定制自己需要的镜像，但是占用空间大且构建慢。*
-
 ```
 git clone https://github.com/voocel/docker-lnmp.git
-cd docker-lnmp
-docker-compose up -d
-```
-
-**版本二(推荐)**
-```
-git clone https://github.com/voocel/docker-lnmp.git
-cd docker-lnmp/v2
 chmod 777 ./redis/redis.log
 chmod -R 777 ./redis/data
 docker-compose up -d
