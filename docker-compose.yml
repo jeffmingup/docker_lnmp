@@ -16,7 +16,7 @@ services:
     restart: always
     container_name: nginx
     networks:
-      default:
+      ming:
         ipv4_address: 172.0.0.10
 
   php:
@@ -31,8 +31,9 @@ services:
     extra_hosts:
       - "devpc-new.hxylt.cn:172.0.0.10"
     networks:
-      default:
+      ming:
         ipv4_address: 172.0.0.20
+      wang:
 
   mysql:
     build: ./mysql
@@ -45,6 +46,8 @@ services:
       MYSQL_ROOT_PASSWORD: 123456
     restart: always
     container_name: mysql
+    networks:
+      wang:
 
   redis:
     build: ./redis
@@ -56,9 +59,12 @@ services:
       - ./redis/redis.log:/usr/local/redis/redis.log
     restart: always
     container_name: redis
+    networks:
+      wang:
 
 networks:
-  default:
+  wang:
+  ming:
     ipam:
       config:
         - subnet: 172.0.0.0/24
