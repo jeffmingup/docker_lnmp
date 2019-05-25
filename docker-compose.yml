@@ -16,7 +16,7 @@ services:
     restart: always
     container_name: nginx
     networks:
-      frontend:
+      ming:
         ipv4_address: 172.0.0.10
 
   php:
@@ -31,9 +31,9 @@ services:
     extra_hosts:
       - "devpc-new.hxylt.cn:172.0.0.10"
     networks:
-      frontend:
+      ming:
         ipv4_address: 172.0.0.20
-      backend:
+      wang:
 
   mysql:
     build: ./mysql
@@ -47,7 +47,7 @@ services:
     restart: always
     container_name: mysql
     networks:
-      backend:
+      wang:
 
   redis:
     build: ./redis
@@ -60,11 +60,11 @@ services:
     restart: always
     container_name: redis
     networks:
-      backend:
+      wang:
 
 networks:
-  backend:
-  frontend:
+  wang:
+  ming:
     ipam:
       config:
         - subnet: 172.0.0.0/24
